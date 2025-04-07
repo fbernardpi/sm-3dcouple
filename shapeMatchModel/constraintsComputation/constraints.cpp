@@ -218,6 +218,9 @@ std::tuple<Eigen::MatrixXi, Eigen::MatrixXi, Eigen::MatrixXi, Eigen::MatrixXi, E
                     for (long j = 0; j < numEdgesOnLayer; j++) {
                         const long rowIdx = nthCoupling * nVX + productspace(j, 2); // actually only on 0-th layer but should be fine
 
+                        if (productspace(j, 0) == productspace(j, 1))
+                            continue;
+
                         // base layer +1
                         I(idx, 0) = (int) (offset3 + rowIdx);
                         J(idx, 0) = (int) (edgeOffsetBase + j);
