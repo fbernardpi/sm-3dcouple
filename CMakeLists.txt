@@ -13,6 +13,9 @@ list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 # Libigl
 include(libigl)
 # add add
+# Pin BDD's moving CPM dependencies before it pulls them in (see cmake/pin.cmake).
+include(pin)
+
 add_subdirectory(external/BDD)
 
 
